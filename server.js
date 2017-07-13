@@ -16,7 +16,7 @@ const fs          = require('fs');            // https://nodejs.org/dist/latest-
 const app = express();
 
 /**
- * Services
+ * Express-jwt, Auth guard service
  */
 const jwtAuth = require('./services/jwt-auth.service');
 
@@ -34,8 +34,7 @@ app.set('port', process.env.PORT || 3000);
  * Security policy
  */
 app.use(helmet(require('./security.policy')));
-app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
-app.use(helmet.hidePoweredBy({ setTo: 'PHP 7.0' }));
+app.use(helmet.hidePoweredBy({ setTo: 'PHP/7.0.2' }));
 
 /**
  * Compression

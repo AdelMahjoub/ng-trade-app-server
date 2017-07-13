@@ -1,17 +1,16 @@
 {
-  "name": "express-rest-api-boilerplate",
+  "name": "ng-games-jump",
   "version": "1.0.0",
-  "description": "a restful api to be consumed by single page applications",
+  "description": "trading game angular web app",
   "main": "server.js",
   "engines": {
-    "node": "6.11.0",
-    "npm": "5.0.4"
+    "node": "6.11.1",
+    "npm": "5.2.0"
   },
   "scripts": {
     "dev": "NODE_ENV=development nf run nodemon server",
     "start": "NODE_ENV=production nf start",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "mkdir logs && touch logs/access.log logs/csp-reports.log"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "nodejs",

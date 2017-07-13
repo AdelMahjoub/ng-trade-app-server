@@ -3,7 +3,6 @@
  */
 const validator = require('validator');     // https://github.com/chriso/validator.js
 const bcrypt    = require('bcrypt-nodejs'); // https://www.npmjs.com/package/bcrypt
-const shortId   = require('shortid');       // https://www.npmjs.com/package/shortid
 
 // DB instance
 const db = require('../services/db.service');
@@ -11,7 +10,6 @@ const db = require('../services/db.service');
 const UserSchema = db.Schema({
   username: {
     type: String,
-    default: `user-${shortId.generate()}`,
     unique: 'This username is not available.',
     required: 'Username should not be empty.',
     validate: [
@@ -24,7 +22,7 @@ const UserSchema = db.Schema({
       {
         isAsync: true,
         validator: function(value, respond) {
-          if(!this.isModified('username')) {
+          if(this.username && !this.isModified('username')) {
             respond(true);
           }
           User.findOne({username: value}, (err, user) => {
@@ -75,7 +73,7 @@ const UserSchema = db.Schema({
     ]
   },
   location: {
-    type: String
+    type: String,
   },
   phone: {
     type: String,
@@ -100,7 +98,7 @@ const UserSchema = db.Schema({
       {
         isAsync: true,
         validator: function(value, respond) {
-          if(!this.isModified('email')) {
+          if(this.email && !this.isModified('email')) {
             respond(true);
           }
           User.findOne({email: value}, (err, user) => {
@@ -125,7 +123,8 @@ const UserSchema = db.Schema({
       msg: 'The Password should have at least 6 characters.'
     }
   },
-  games: []
+  myGames: [{ type: db.Schema.Types.ObjectId, ref: 'Game' }],
+  myRequests: [{ type: db.Schema.Types.ObjectId, ref: 'Game' }]
 });
 
 // Schema pre save middleware on User

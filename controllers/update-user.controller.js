@@ -18,7 +18,7 @@ module.exports = function(req, res, next) {
           });
           return res.json({errors: validationErrors});
         }
-        User.findById(doc['_id'],{_id: 0, password: 0, __v: 0 }, (err, updatedUser) => {
+        User.findById(doc['_id'],{password: 0, __v: 0 }, (err, updatedUser) => {
           if(err || !updatedUser) {
             return res.json({errors: ['Unexpected error, please try again']});
           }

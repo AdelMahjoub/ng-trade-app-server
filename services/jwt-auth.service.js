@@ -28,9 +28,10 @@ module.exports = expressJwt({
 .unless({
   path: [
     '/',
+    '/api/games',
     '/api/login',
     '/api/signup',
     '/api/email-is-used',
-    '/api/report-violation',
+    '/api/report-violation'
   ]
 })

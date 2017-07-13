@@ -3,17 +3,25 @@ module.exports = {
     directives: {
       defaultSrc    : ["'none'"],         // defines the defaults for most directives you leave unspecified. Generally, this applies to any directive that ends with -src.
       scriptSrc     : ["'self'"],         // a directive that controls a set of script-related privileges for a specific page.
-      styleSrc      : ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],         // is script-src’s counterpart for stylesheets.
+      styleSrc      : [
+        "'self'", 
+        'https://fonts.googleapis.com', 
+        "'unsafe-inline'"],                // is script-src’s counterpart for stylesheets.
    // childSrc      : ["'self'"],         // lists the URLs for workers and embedded frame contents.
       connectSrc    : ["'self'"],         // limits the origins to which you can connect (via XHR, WebSockets, and EventSource).
-      fontSrc       : ["'self'", 'https://fonts.gstatic.com'],         // specifies the origins that can serve web fonts.
+      fontSrc       : [
+        "'self'", 
+        'https://fonts.gstatic.com'],     // specifies the origins that can serve web fonts.
    // mediaSrc      : ["'none'"],         // restricts the origins allowed to deliver video and audio.
-      imgSrc        : ["'self'"],         // defines the origins from which images can be loaded.
-      objectSrc     : ["'none'"],         // allows control over Flash and other plugins.
-      baseUri       : ["'self'"],         // restricts the URLs that can appear in a page’s <base> element.
-      formAction    : ["'self'"],         // lists valid endpoints for submission from <form> tags.
-      frameAncestors: ["'none'"],         // specifies the sources that can embed the current page. 
-   // pluginTypes   : ["'none'"],         // limits the kinds of plugins a page may invoke.
+      imgSrc        : [
+        "'self'", 
+        'https://images.igdb.com', 
+        'http://via.placeholder.com/90x90'],  // defines the origins from which images can be loaded.
+      objectSrc     : ["'none'"],             // allows control over Flash and other plugins.
+      baseUri       : ["'self'"],             // restricts the URLs that can appear in a page’s <base> element.
+      formAction    : ["'self'"],             // lists valid endpoints for submission from <form> tags.
+      frameAncestors: ["'none'"],             // specifies the sources that can embed the current page. 
+   // pluginTypes   : ["'none'"],             // limits the kinds of plugins a page may invoke.
       reportUri     : '/api/report-violation' // specifies a URL where a browser will send reports when a content security policy is violated. 
     },
     reportOnly  : false, // This instructs browsers to report violations to the reportUri (if specified) but it will not block/ or block any resources from loading.
