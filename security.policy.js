@@ -16,7 +16,8 @@ module.exports = {
       imgSrc        : [
         "'self'", 
         'https://images.igdb.com', 
-        'http://via.placeholder.com/90x90'],  // defines the origins from which images can be loaded.
+        'http://via.placeholder.com/90x90',
+      ],  // defines the origins from which images can be loaded.
       objectSrc     : ["'none'"],             // allows control over Flash and other plugins.
       baseUri       : ["'self'"],             // restricts the URLs that can appear in a page’s <base> element.
       formAction    : ["'self'"],             // lists valid endpoints for submission from <form> tags.

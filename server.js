@@ -78,7 +78,12 @@ app.use(routes);
  * Case Unauthorized
  */
 app.use((err, req, res, next) => {
-  res.json({errors: ['Unauthorized']});  
+  let patt = /^\/api\/(.)+/
+  if(!patt.test(req.url)) {
+    return res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  } else {
+    return res.json({errors: ['Unauthorized']});  
+  }
 });
 
 /**
