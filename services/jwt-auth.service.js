@@ -4,7 +4,7 @@
 const expressJwt = require('express-jwt');   // https://github.com/auth0/express-jwt
 
 module.exports = expressJwt({
-  secret: process.env.PUBLIC_KEY,
+  secret: process.env.SECRET,
   credentialsRequired: true,
   getToken: function fromHeader(req, res, next) {
     if(req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
